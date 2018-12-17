@@ -1,8 +1,10 @@
 const
     mongoose = require('mongoose'),
-    bcrypt = require('bcrypt-nodejs')
+    bcrypt = require('bcrypt-nodejs'),
+    entrySchema = require('./entry.js');
 
 require('mongoose-type-email');
+
 
 const entrySchema = new mongoose.Schema({
     date: {
@@ -32,7 +34,8 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        entries: [entrySchema]
+        // entries: [entrySchema]
+        entries: { type: mongoose.Schema.Types.ObjectId, ref: 'Entry' }
     }, { timestamps: true });
 
 
