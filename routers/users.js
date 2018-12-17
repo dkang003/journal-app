@@ -3,6 +3,12 @@ const
     usersRouter = new express.Router(),
     passport = require('passport')
 
+
+// delete a user
+usersRouter.delete('/profile', isLoggedIn, (req, res) => {
+    res.render('login')
+})
+
 // render login view
 usersRouter.get('/login', (req, res) => {
     res.render('login')
@@ -10,8 +16,8 @@ usersRouter.get('/login', (req, res) => {
 
 // login route
 usersRouter.post('/login', passport.authenticate('local-login', {
-    successRedirect: 'users/profile',
-    failureRedirect: 'users/login'
+    successRedirect: '/users/profile',
+    failureRedirect: '/users/login'
 }));
 
 // render signup view
@@ -21,7 +27,7 @@ usersRouter.get('/signup', (req, res) => {
 
 // signup route
 usersRouter.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: 'users/profile',
+    successRedirect: '/users/profile',
     failureRedirect: '/users/signup'
 }));
 
@@ -40,6 +46,12 @@ usersRouter.patch('/profile', isLoggedIn, (req, res) => {
         res.redirect('/users/profile');
     });
 });
+
+// usersRouter.delete('/profile', isLoggedIn, (req, res) => {
+//     user = req.user.id 
+
+
+// });
 
 
 // Edit Route using method override

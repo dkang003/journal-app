@@ -64,7 +64,8 @@ app.get('/', (req, res) => {
 // Router
 // 
 app.use('/users', usersRouter);
-
+// middleware requires a logged in user to access the entries
+// app.use('/entries', isLoggedIn, entriesRouter);  
 
 
 app.listen(PORT, (err) => {
