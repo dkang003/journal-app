@@ -6,6 +6,7 @@ const
     mongoose = require('mongoose'),
     logger = require('morgan'),
     methodOverride = require('method-override'),
+    ejs = require('ejs'),
     ejsLayouts = require('express-ejs-layouts'),
     cookieParser = require('cookie-parser'),
     passport = require('passport'),
