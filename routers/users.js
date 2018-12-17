@@ -1,13 +1,17 @@
 const
     express = require('express'),
     usersRouter = new express.Router(),
-    passport = require('passport')
+    passport = require('passport'),
+    User = require('../models/user');
 
 
 // delete a user
 usersRouter.delete('/profile', isLoggedIn, (req, res) => {
-    res.render('login')
-})
+    User.findByIdAndDelete(req.user.id, (err, deletedUser) => {
+        if (err) res.json({ success: false, err })
+        res.render('index')
+    })
+});
 
 // render login view
 usersRouter.get('/login', (req, res) => {
@@ -46,12 +50,6 @@ usersRouter.patch('/profile', isLoggedIn, (req, res) => {
         res.redirect('/users/profile');
     });
 });
-
-// usersRouter.delete('/profile', isLoggedIn, (req, res) => {
-//     user = req.user.id 
-
-
-// });
 
 
 // Edit Route using method override

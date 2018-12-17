@@ -5,6 +5,10 @@
         <p class="lead">
             <%= user.email %> | <%= user._id %> 
             <a href="/users/logout" class="btn btn-warning btn-sm">Logout</a>
+            <!-- Delete Button -->
+            <form method="post" action="/users/profile?_method=DELETE">
+                <button type="submit">Delete My Account!</button>
+            </form>
         </p>
     </div>
 </div>
