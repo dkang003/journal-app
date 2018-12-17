@@ -17,6 +17,7 @@ const
     }),
     passportConfig = require('./services/auth'),
     flash = require('connect-flash'),
+    usersRouter = require('./routers/users.js'),
     PORT = process.env.PORT || 3000;
 
 

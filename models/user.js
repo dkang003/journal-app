@@ -3,7 +3,22 @@ const
     bcrypt = require('bcrypt-nodejs')
 
 require('mongoose-type-email');
-    
+
+const entrySchema = new mongoose.Schema({
+    date: {
+        type: Date,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    body:  {
+        type: String,
+        required: true
+    },
+}, { timestamps: true });
+
 const userSchema = new mongoose.Schema({
         name: {
             type: String,
@@ -20,20 +35,6 @@ const userSchema = new mongoose.Schema({
         entries: [entrySchema]
     }, { timestamps: true });
 
-const entrySchema = new mongoose.Schema({
-    date: {
-        type: Date,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    body:  {
-        type: String,
-        required: true
-    },
-}, { timestamps: true });
 
 // Hash the users password
 userSchema.pre('save', function(next) {
@@ -56,5 +57,6 @@ userSchema.methods.validPassword = function(password) {
 };
 
 const User = mongoose.model('User', userSchema);
+const Entry = mongoose.model('Entry', entrySchema);
 
 module.exports = User;
