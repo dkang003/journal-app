@@ -13,11 +13,10 @@ entriesRouter.get('/new', Entry.new);
 entriesRouter.get('/:id', Entry.show);
 // create new entry
 entriesRouter.post('/', Entry.create);
-// // update existing entry
-// entriesRouter.patch('/:id', Entry.update);
-// // delete existing entry
-// entriesRouter.delete('/:id', Entry.destroy);
+// update existing entry
+entriesRouter.patch('/:id', Entry.update);
+// delete existing entry
+entriesRouter.delete('/:id', Entry.destroy);
 
-// entriesRouter.post('/newEntry', Entry.create );
 
 module.exports = entriesRouter;
