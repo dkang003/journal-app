@@ -9,6 +9,11 @@
             <form method="post" action="/users/profile?_method=DELETE">
                 <button type="submit">Delete My Account!</button>
             </form>
+            <!-- New Entry Button -->
+            <a href="/entries/new">Make a new Entry</a>
+        </p>
+        <p>
+            <%= user.entries %>
         </p>
     </div>
 </div>

@@ -25,3 +25,6 @@ I wanted to make an app where users could treat it like their private diary/blog
   * Connect-Mongodb-Session - stores sessions
 4. Extras
   * Mongoose-type-email - This allows for validation of email in my User model.
+
+  
+  

@@ -71,6 +71,5 @@ function isLoggedIn(req, res, next) {
     // if not authenticated, redirect to login view
     res.redirect('/users/login');
 }
-
-
+ 
 module.exports = usersRouter;

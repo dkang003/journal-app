@@ -19,6 +19,7 @@ const
     passportConfig = require('./services/auth'),
     flash = require('connect-flash'),
     usersRouter = require('./routers/users.js'),
+    entriesRouter = require('./routers/entries'),
     PORT = process.env.PORT || 3000;
 
 
@@ -51,6 +52,7 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
 app.use(flash());
+app.use(express.json());
 app.use(methodOverride('_method'));
 
 // EJS Configuration
@@ -62,11 +64,16 @@ app.get('/', (req, res) => {
 });
 
 // Router
-// 
 app.use('/users', usersRouter);
-// middleware requires a logged in user to access the entries
-// app.use('/entries', isLoggedIn, entriesRouter);  
+app.use('/entries', isLoggedIn, entriesRouter);
 
+
+function isLoggedIn(req, res, next) {
+    // isAuthenticted checks the cookie
+    if (req.isAuthenticated()) return next();
+    // if not authenticated, redirect to login view
+    res.redirect('/users/login');
+}
 
 app.listen(PORT, (err) => {
     console.log(err || `Listening on port ${PORT}`);
