@@ -1,12 +1,18 @@
-/* h1 {
-    color: red
-} */
+.jumbotron.jumbotron-fluid {
+    background-image: url(https://cdn-images-1.medium.com/max/2000/0*o1QU-7dhjuNPNZUq.);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
 .jumbotron {
     border: 1px solid black;
 }
 
 #home {
+    text-align: center;
+}
+
+.dropdown-menu-right {
     text-align: center;
 }
 

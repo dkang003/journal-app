@@ -7,9 +7,8 @@ require('mongoose-type-email');
 
 const userSchema = new mongoose.Schema({
         name: {
-            type: String
-            // ,
-            // required: true
+            type: String,
+            required: true
         },
         email: {
             type: mongoose.SchemaTypes.Email
@@ -17,9 +16,8 @@ const userSchema = new mongoose.Schema({
             // required: true
         },
         password: {
-            type: String
-            // ,
-            // required: true
+            type: String,
+            required: true
         },
         entries: [entrySchema]
     }, { timestamps: true });
