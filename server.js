@@ -18,6 +18,7 @@ const
     }),
     passportConfig = require('./services/auth'),
     flash = require('connect-flash'),
+    path = require('path'),
     usersRouter = require('./routers/users.js'),
     entriesRouter = require('./routers/entries'),
     PORT = process.env.PORT || 3000;
@@ -48,6 +49,7 @@ app.use((req, res, next) => {
 
 // Middleware
 // 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));

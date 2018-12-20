@@ -1,0 +1,21 @@
+h1 {
+    color: red
+}
+
+.jumbotron {
+    border: 1px solid black;
+}
+
+#home {
+    text-align: center;
+}
+
+.home-link {
+    background-color: rgb(25, 196, 25);
+    border-radius: 10px;
+    color: white;
+}
+
+.home-link:hover {
+    background-color: rgba(0, 121, 0, 0.5);
+}

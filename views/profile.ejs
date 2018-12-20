@@ -7,11 +7,11 @@
             <a href="/users/logout" class="btn btn-warning btn-sm">Logout</a>
             <!-- Delete Button -->
             <form method="post" action="/users/profile?_method=DELETE">
-                <button type="submit">Delete My Account!</button>
+                <button type="submit" class="btn btn-info">Delete My Account!</button>
             </form>
             <!-- Edit Profile button -->
             <form method="post" action="/users/profile/edit?_method=GET">
-                <button type="submit">Edit My Profile!</button>
+                <button type="submit" class="btn btn-info">Edit My Profile!</button>
             </form>            
             <!-- New Entry Button -->
             <a href="/entries/new">Make a new Entry</a>
@@ -19,15 +19,28 @@
         <p>
             <!-- <%= user.entries %> -->
             <% user.entries.forEach(entry => { %>
-                Date
+                <div class="jumbotron">
+                    <div class="text-right">
+                        <a class="btn btn-primary btn-lg pull-right" href="#" role="button">Edit this Entry</a>
+                    </div>
+                    <h1 class="display-4"><%= entry.title %></h1>
+                    <p class="lead"><%= moment(entry.date).format('MM-DD-YY') %></p>
+                    <hr class="my-4">
+                    <p><%= entry.body %></p>
+                    
+                </div>
+                <!-- Date
                 <%= moment(entry.date).format('MM-DD-YY') %>
+                <br>
                 Title
                 <%= entry.title %>
+                <br>
                 Body
                 <%= entry.body %>
-                <form method="post" action="/entries/<%= entry.id %>/edit?_method=GET">
-                    <button type="submit">Edit This Entry!</button>
-                </form>
+                <br> -->
+                <!-- <form method="post" action="/entries/<%= entry.id %>/edit?_method=GET">
+                    <button type="submit" class="btn btn-info">Edit This Entry!</button>
+                </form> -->
             <% }) %>
         </p>
     </div>
