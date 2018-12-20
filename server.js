@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 
 // Router
 app.use('/users', usersRouter);
-app.use('/entries', entriesRouter); // put isLoggedIn here
+app.use('/entries', isLoggedIn, entriesRouter); 
 
 
 function isLoggedIn(req, res, next) {

@@ -50,16 +50,14 @@ module.exports = {
         // let userId = "5c1827e94a8b2fedd386c7c8"
         // let entryId = "5c1ab17f37cf103bb75291a4"
         // FIND USER BY COOKIE ID
-        let userId = req.user.id
-        let entryId = req.params.id
-        User.findById(userId, (err, user) => {
+        User.findById(req.user.id, (err, user) => {
             if (err) res.json({ success: false, err })
-            let entry = user.entries.id(entryId)
+            let entry = user.entries.id(req.params.id)
             if (!entry) res.json({ success: false, message: "Entry does not exist" })
-            Object.assign(entry, req.body)
+            Object.assign(entry, req.body);
             user.save(err => {
                 if (err) res.json({ success: false, err })
-                res.json({ success: true, user })
+                res.redirect('/users/profile')
             })
         })
     },
@@ -77,8 +75,20 @@ module.exports = {
             user.entries = newArr
             user.save(err => {
                 if (err) res.json({ success: false, err })
-                res.json({ success: true, user })
+                // res.json({ success: true, user })
+                res.redirect('/users/profile')
             })
+        })
+    },
+    edit: (req, res) => {
+        User.findById(req.user.id, (err, user) => {
+            if (err) res.json({ success: false, err });
+
+            let entry = user.entries.id(req.params.id);
+            console.log(entry.date)
+            moment = require('moment')
+            if (!entry) throw new Error("Entry does not exist.");
+            res.render('editEntry', entry)
         })
     }
 }

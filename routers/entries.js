@@ -13,6 +13,8 @@ entriesRouter.get('/new', Entry.new);
 entriesRouter.get('/:id', Entry.show);
 // create new entry
 entriesRouter.post('/', Entry.create);
+// Show form to edit entry
+entriesRouter.get('/:id/edit', Entry.edit);
 // update existing entry
 entriesRouter.patch('/:id', Entry.update);
 // delete existing entry

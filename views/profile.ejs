@@ -9,12 +9,26 @@
             <form method="post" action="/users/profile?_method=DELETE">
                 <button type="submit">Delete My Account!</button>
             </form>
+            <!-- Edit Profile button -->
+            <form method="post" action="/users/profile/edit?_method=GET">
+                <button type="submit">Edit My Profile!</button>
+            </form>            
             <!-- New Entry Button -->
             <a href="/entries/new">Make a new Entry</a>
         </p>
         <p>
-            <%= user.entries %>
-            
+            <!-- <%= user.entries %> -->
+            <% user.entries.forEach(entry => { %>
+                Date
+                <%= moment(entry.date).format('MM-DD-YY') %>
+                Title
+                <%= entry.title %>
+                Body
+                <%= entry.body %>
+                <form method="post" action="/entries/<%= entry.id %>/edit?_method=GET">
+                    <button type="submit">Edit This Entry!</button>
+                </form>
+            <% }) %>
         </p>
     </div>
 </div>

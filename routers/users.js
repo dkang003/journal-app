@@ -37,6 +37,7 @@ usersRouter.post('/signup', passport.authenticate('local-signup', {
 
 // require login to view profile
 usersRouter.get('/profile', isLoggedIn, ({ user }, res) => {
+    moment = require('moment')
     res.render('profile', { user });
 });
 
