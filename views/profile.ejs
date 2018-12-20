@@ -1,47 +1,76 @@
+<!-- NAV BAR -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="d-flex justify-content-between collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="user-info">
+            <%= user.email %> | <%= user.name %>
+            <!-- <%= user._id %> |  -->
+        </div>
+
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Options
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <form method="post" action="/users/profile/edit?_method=GET">
+                    <button type="submit" class="btn btn-info">Edit My Profile!</button>
+                </form>   
+                <a class="nav-link btn btn-warning" href="/users/logout">Log Out</a>
+                <div class="dropdown-divider"></div>
+                <form method="post" action="/users/profile?_method=DELETE">
+                    <button type="submit" class="btn btn-danger">Delete My Account!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4"><%= user.name %></h1>
-        <p class="lead">
-            <%= user.email %> | <%= user._id %> 
-            <a href="/users/logout" class="btn btn-warning btn-sm">Logout</a>
-            <!-- Delete Button -->
-            <form method="post" action="/users/profile?_method=DELETE">
-                <button type="submit" class="btn btn-info">Delete My Account!</button>
-            </form>
-            <!-- Edit Profile button -->
-            <form method="post" action="/users/profile/edit?_method=GET">
-                <button type="submit" class="btn btn-info">Edit My Profile!</button>
-            </form>            
-            <!-- New Entry Button -->
-            <a href="/entries/new">Make a new Entry</a>
-        </p>
+        <h1><a href="/entries/new">Make a new Entry</a></h1>
+        
         <p>
-            <!-- <%= user.entries %> -->
-            <% user.entries.forEach(entry => { %>
-                <div class="jumbotron">
-                    <div class="text-right">
-                        <a class="btn btn-primary btn-lg pull-right" href="#" role="button">Edit this Entry</a>
-                    </div>
-                    <h1 class="display-4"><%= entry.title %></h1>
-                    <p class="lead"><%= moment(entry.date).format('MM-DD-YY') %></p>
-                    <hr class="my-4">
-                    <p><%= entry.body %></p>
-                    
+        <% user.entries.forEach(entry => { %>
+            <div class="jumbotron">
+                <div class="text-right">
+                    <form method="post" action="/entries/<%= entry.id %>/edit?_method=GET">
+                        <button type="submit" class="btn btn-primary">Edit This Entry!</button>
+                    </form>
                 </div>
-                <!-- Date
-                <%= moment(entry.date).format('MM-DD-YY') %>
-                <br>
-                Title
-                <%= entry.title %>
-                <br>
-                Body
-                <%= entry.body %>
-                <br> -->
-                <!-- <form method="post" action="/entries/<%= entry.id %>/edit?_method=GET">
-                    <button type="submit" class="btn btn-info">Edit This Entry!</button>
-                </form> -->
-            <% }) %>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="Date">Date</label>
+                        <p class="lead"><%= moment(entry.date).format('MM-DD-YY') %></p>
+                    </div>
+                    <div class="col-8">
+                        <label for="title">Title</label>
+                        <h1 class="display-4"><%= entry.title %></h1>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="col-12">
+                    <label for="Body">Body</label>
+                    <p class="text-justify"><%= entry.body %></p>
+                    <p class="text-justify">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos aliquam saepe aspernatur qui animi debitis voluptatum et, quidem quo expedita reprehenderit impedit asperiores, in numquam deserunt adipisci! Esse, quae aspernatur!
+                    </p>
+                </div>
+            </div>
+        <% }) %>
         </p>
     </div>
 </div>
+
+
+<!-- <li>
+    <form method="post" action="/users/profile/edit?_method=GET">
+        <button type="submit" class="btn btn-info">Edit My Profile!</button>
+    </form>   
+</li> -->
+<!-- <li class="nav-item">
+    <a class="nav-link btn btn-warning" href="/users/logout">Log Out<span class="sr-only">(current)</span></a>
+</li> -->
+<!-- <li class="nav-item">
+    <form method="post" action="/users/profile?_method=DELETE">
+        <button type="submit" class="btn btn-danger">Delete My Account!</button>
+    </form>
+</li> -->
