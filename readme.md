@@ -13,6 +13,14 @@ HTML | CSS | JS | MongoDB | Express | Node.js | Bootstrap | jQuery | Git | EJS |
 --------------
 ![Screen Shot 2018-12-20 at 5.57.42 PM](https://i.imgur.com/ZpZmZ6G.png)
 
+### Install Server
+--------------------
+1. npm init -y in root folder
+2. npm install --save express
+3. --save dotenv
+4. --save mongoose
+5. --save connect-mongodb-session
+
 
 ###Packages Installed:
 -------------------
@@ -22,7 +30,7 @@ HTML | CSS | JS | MongoDB | Express | Node.js | Bootstrap | jQuery | Git | EJS |
   * Allows us to embed javascript and html together in one file.
 3. Auth packages
   * Bcrypt-nodejs - allows hashing of password
-  * Cookie Parser
+  * Cookie Parser - parses cookie header and populate req.cookies with object keyed by cookie names
   * Express-session
   * Passport
   * Passport-local
