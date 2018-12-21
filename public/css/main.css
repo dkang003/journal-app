@@ -1,3 +1,24 @@
+@media only screen and (max-width: 1199px) {
+    #entry {
+     width: 850px;
+     height: 300px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    #entry {
+     width: 620px;
+     height: 300px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #entry {
+     width: 440px;
+     height: 200px;
+    }
+}
+
 body {
     background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-362122.jpg);
     background-size: cover;
