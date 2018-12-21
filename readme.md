@@ -6,7 +6,7 @@ I wanted to make an app where users could treat it like their private diary/blog
 
 ###Technologies Used:
 ------------
-HTML | CSS | JS | MongoDB | Express | Node.js | Bootstrap | jQuery
+HTML | CSS | JS | MongoDB | Express | Node.js | Bootstrap | jQuery | Git | EJS | Passport | Trello
 
 
 ### ERD (Entity Relational Diagram)
