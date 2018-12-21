@@ -1,5 +1,5 @@
 <!-- NAV BAR -->
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #353d43;">
     <div class="d-flex justify-content-between collapse navbar-collapse" id="navbarSupportedContent">
         <div class="user-info">
             <%= user.email %> | <%= user.name %>
@@ -9,7 +9,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Options
             </a>
-            <div style="background-color: #e3f2fd" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div style="background-color: #353d43" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <form method="post" action="/users/profile/edit?_method=GET">
                     <button style="display:inline-block" type="submit" class="btn btn-primary">Edit My Profile!</button>
                 </form>   
@@ -35,7 +35,7 @@
                         <button type="submit" class="btn btn-primary">Edit This Entry!</button>
                     </form>
                 </div>
-                <div class="row">
+                <div style="color: black" class="row">
                     <div class="col-4">
                         <label for="Date">Date</label>
                         <p class="lead"><%= moment(entry.date).format('MM-DD-YY') %></p>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <hr class="my-4">
-                <div class="col-12">
+                <div style="color: black" class="col-12">
                     <label style="display:block" for="Body">Body</label>
                     <textarea disabled id="" cols="130" rows="14">
                         <%= entry.body %>    
