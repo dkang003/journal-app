@@ -1,6 +1,7 @@
 const
     User = require('../models/user'),
-    Entry = require('../models/entry');
+    Entry = require('../models/entry'),
+    moment = require('moment')
 
 
 // index, show, create, update, delete
@@ -16,7 +17,7 @@ module.exports = {
         })
     },
     new: (req, res) => {
-        res.render('newEntry');
+        res.render('newEntry', { moment });
     },
     show: (req, res) => {
         // // TEST USER FOR POSTMAN
@@ -36,6 +37,7 @@ module.exports = {
         // let id = "5c1827e94a8b2fedd386c7c8"
         // FIND USER BY COOKIE ID
         let id = req.user.id;
+
         User.findById(id, (err, user) => {
             if (err) res.json({ success: false, err })
             user.entries.unshift(req.body)
@@ -86,7 +88,6 @@ module.exports = {
 
             let entry = user.entries.id(req.params.id);
             console.log(entry.date)
-            moment = require('moment')
             if (!entry) throw new Error("Entry does not exist.");
             res.render('editEntry', entry)
         })

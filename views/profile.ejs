@@ -9,7 +9,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Options
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <div style="background-color: #e3f2fd" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <form method="post" action="/users/profile/edit?_method=GET">
                     <button style="display:inline-block" type="submit" class="btn btn-primary">Edit My Profile!</button>
                 </form>   
@@ -25,7 +25,7 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 style="text-align:center"><a style="background-color: rgba(255,255,255, 0.8); border-radius: 10px" href="/entries/new"><i class="fas fa-plus"></i> Make a new Entry</a></h1>
+        <h1 style="text-align:center"><a style="padding:10px; background-color: rgba(255,255,255, 0.8); border-radius: 10px" href="/entries/new"><i class="fas fa-plus"></i> Make a new Entry</a></h1>
         
         <p>
         <% user.entries.forEach(entry => { %>
@@ -47,11 +47,12 @@
                 </div>
                 <hr class="my-4">
                 <div class="col-12">
-                    <label for="Body">Body</label>
-                    <p class="d-flex flex-wrap"><%= entry.body %></p>
-                    <p class="text-justify">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos aliquam saepe aspernatur qui animi debitis voluptatum et, quidem quo expedita reprehenderit impedit asperiores, in numquam deserunt adipisci! Esse, quae aspernatur!
-                    </p>
+                    <label style="display:block" for="Body">Body</label>
+                    <textarea disabled id="" cols="130" rows="14">
+                        <%= entry.body %>    
+                    </textarea>
+                    <!-- <p class="d-flex flex-wrap"><%= entry.body %></p> -->
+                    <!-- <%= entry.body %> -->
                 </div>
             </div>
         <% }) %>
@@ -59,17 +60,3 @@
     </div>
 </div>
 
-
-<!-- <li>
-    <form method="post" action="/users/profile/edit?_method=GET">
-        <button type="submit" class="btn btn-info">Edit My Profile!</button>
-    </form>   
-</li> -->
-<!-- <li class="nav-item">
-    <a class="nav-link btn btn-warning" href="/users/logout">Log Out<span class="sr-only">(current)</span></a>
-</li> -->
-<!-- <li class="nav-item">
-    <form method="post" action="/users/profile?_method=DELETE">
-        <button type="submit" class="btn btn-danger">Delete My Account!</button>
-    </form>
-</li> -->
