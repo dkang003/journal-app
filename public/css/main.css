@@ -1,23 +1,16 @@
-@media only screen and (max-width: 1199px) {
-    #entry {
-     width: 850px;
-     height: 300px;
+/* fullscreen */
+@media only screen and (max-width: 575px) {
+    .container {
+        width: 92%;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .entry-title {
+        font-size: 1.5em;
     }
 }
 
-@media only screen and (max-width: 990px) {
-    #entry {
-     width: 620px;
-     height: 300px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    #entry {
-     width: 440px;
-     height: 200px;
-    }
-}
 
 body {
     background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-362122.jpg);

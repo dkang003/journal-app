@@ -42,18 +42,13 @@
                     </div>
                     <div class="col-8">
                         <label for="title">Title</label>
-                        <h1 class="display-4"><%= entry.title %></h1>
+                        <h1 class="display-4 entry-title"><%= entry.title %></h1>
                     </div>
                 </div>
                 <hr class="my-4">
-                <div style="color: black" class="col-12">
+                <div style="color: black">
                     <label style="display:block" for="Body">Body</label>
-                    <!-- <textarea disabled id="entry" cols="130" rows="14">
-                        <%= entry.body %>    
-                    </textarea> -->
-                    <!-- <p class="d-flex flex-wrap"><%= entry.body %></p> -->
                     <p style="white-space: pre-wrap;"><%= entry.body %></p>
-                    <!-- <%= entry.body %> -->
                 </div>
             </div>
         <% }) %>
